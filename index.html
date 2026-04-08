@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <!-- Site: Painel de Atendimento -->
+    <!-- Criado por: Arthur Henrique, NOME, NOME, NOME, NOME -->
+    <!-- Data: 06/04/2026 -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Atendimento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            margin: 0px;
+            background-color: rgb(224, 224, 224);
+            font-family: "Inter";
+        }
+
+        /* cabeçalho */
+        h1 {
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            margin-top: 0px;
+            text-align: center;
+        }
+
+        /* layout */
+        .container {
+            /* background-color: red; */
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            grid-auto-rows: auto;
+            gap: 10px;
+            width: 90%;
+            margin-left: 4%;
+        }
+
+        .block {
+            /* background-color: green; */
+            position: sticky;
+            padding: 0px;
+        }
+
+        #painelAtual {
+            grid-column: 1 / 4;
+        }
+
+        /* formatação dos blocos de conteúdo */
+        .blockHeader {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .blockContent {
+            margin: 0px 0px 0px 0px;
+            background-color: white;
+            padding: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            overflow-wrap: break-word;
+            font-family: "Inter";
+            text-align: center;
+        }
+
+        h2 {
+            padding: 10px;
+            margin: 0px;
+            color: white;
+            font-family: "Inter";
+        }
+        
+        button {
+            color: white;
+            background-color: blue;
+            border: 0px;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 2ch;
+        }
+
+        .blockContent > *, .blockHeader > * {
+            margin: 0px;
+        }
+
+        /* cores individuais dos blocos */
+        #blue {
+            background-color: rgb(36, 163, 163);
+        }
+
+        #grey {
+            background-color: rgb(155, 156, 156);
+        }
+
+        #pink {
+            background-color: rgb(218, 116, 133);
+        }
+
+        #yellow {
+            background-color: rgb(231, 231, 30);
+        }
+
+        /* ajuste do layout para telas menores */
+        @media (width <= 720px) {
+
+            .container {
+            /* background-color: orange; */ 
+            display: grid;
+            grid-template-columns: 100%;
+            grid-auto-rows: auto;
+            gap: 20px;
+            width: 92%;
+            margin-left: 4%;
+            }
+
+            #painelAtual {
+            grid-column: 1;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Painel de Atendimento</h1>
+
+    <div class="container">
+
+        <!-- Senhas - bloco base pro layout -->
+        <div class="block">
+
+            <!-- bloco final + conteúdo -->
+            <div class="blockHeader" id="blue" >
+                <h2>Senhas</h2>
+            </div>
+            <div class="blockContent" id="senhas">
+                <button>Gerar Senha</button>
+            </div>
+
+        </div>
+
+        <!-- Mídia -->
+        <div class="block">
+            <div class="blockHeader" id="grey">
+                <h2>Mídia</h2>
+            </div>
+            <div class="blockContent">
+                <img src="/assets/images/cafefotogenerica.jpg" width="100%" style="border-radius: 10px;">
+            </div>
+        </div>
+
+        <!-- Painel de Atendimento de Senhas -->
+        <div class="block">
+            <div class="blockHeader" id="pink">
+                <h2>Atendimento de Senhas</h2>
+            </div>
+            <div class="blockContent">
+                <p></p>
+            </div>
+
+        </div>
+
+        <!-- Painel Atual -->
+        <div class="block" id="painelAtual">
+            <div class="blockHeader" id="yellow">
+                <h2>Atual</h2>
+            </div>
+            <div class="blockContent">
+                <p></p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
