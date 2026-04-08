@@ -67,7 +67,6 @@
             border-bottom-right-radius: 10px;
             overflow-wrap: break-word;
             font-family: "Inter";
-            text-align: center;
         }
 
         h2 {
@@ -76,34 +75,25 @@
             color: white;
             font-family: "Inter";
         }
-        
-        button {
-            color: white;
-            background-color: blue;
-            border: 0px;
-            border-radius: 5px;
-            padding: 8px;
-            font-size: 2ch;
-        }
 
         .blockContent > *, .blockHeader > * {
             margin: 0px;
         }
 
         /* cores individuais dos blocos */
-        #blue {
+        .blue {
             background-color: rgb(36, 163, 163);
         }
 
-        #grey {
+        .grey {
             background-color: rgb(155, 156, 156);
         }
 
-        #pink {
+        .pink {
             background-color: rgb(218, 116, 133);
         }
 
-        #yellow {
+        .yellow {
             background-color: rgb(231, 231, 30);
         }
 
@@ -111,13 +101,10 @@
         @media (width <= 720px) {
 
             .container {
-            /* background-color: orange; */ 
-            display: grid;
+            /* background-color: orange; */
             grid-template-columns: 100%;
-            grid-auto-rows: auto;
             gap: 20px;
             width: 92%;
-            margin-left: 4%;
             }
 
             #painelAtual {
@@ -139,49 +126,48 @@
         <div class="block">
             
             <!-- bloco formatado -->
-            <div class="blockHeader" id="blue" > <!-- cabeçalho -->
+            <div class="blockHeader blue" > <!-- cabeçalho -->
                 <h2>Senhas</h2>
             </div>
             <div class="blockContent"> <!-- conteúdo -->
-                <button>Gerar Senha</button>
             </div>
             
         </div>
 
         <!-- Mídia -->
         <div class="block">
-            <div class="blockHeader" id="grey">
-                <h2>Mídia</h2>
+            <div class="blockHeader grey"> <!-- cabeçalho -->
+                <h2>Mídia</h2> 
             </div>
-            <div class="blockContent">
+            <div class="blockContent"> <!-- conteúdo -->
                 <img src="/assets/images/cafefotogenerica.jpg" width="100%" style="border-radius: 10px;">
             </div>
         </div>
 
         <!-- Painel de Atendimento de Senhas -->
         <div class="block">
-            <div class="blockHeader" id="pink">
+            <div class="blockHeader pink"> <!-- cabeçalho -->
                 <h2>Atendimento de Senhas</h2>
             </div>
-            <div class="blockContent">
+            <div class="blockContent"> <!-- conteúdo -->
                 <p></p>
             </div>
 
         </div>
 
         <!-- Painel Atual -->
-        <div class="block" id="painelAtual">
-            <div class="blockHeader" id="yellow">
+        <div class="block" id="painelAtual"> 
+            <div class="blockHeader yellow"> <!-- cabeçalho -->
                 <h2>Atual</h2>
             </div>
-            <div class="blockContent">
+            <div class="blockContent"> <!-- conteúdo -->
                 <p></p>
             </div>
 
         </div>
-
     </div>
-
+    
+    <script></script>
 </body>
 
 </html>
