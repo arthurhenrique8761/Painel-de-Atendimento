@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <style>
     body {
         margin: 0px;
@@ -109,6 +110,10 @@
         width: 100%;
     }
 
+    .owl-carousel {
+        width: auto;
+    }
+
     /* cores dos blocos */
     #green {
         background-color: rgb(48, 181, 0);
@@ -180,8 +185,10 @@
             <div class="blockHeader" id="grey">
                 <h2>Mídia</h2>
             </div>
-            <div class="blockContent">
-                <video id="videoPlayer" muted autoplay playsinline></video>
+            <div class="blockContent owl-carousel" id="videoCarousel">
+                <div class="item"><video src="./assets/videos/hospital1.mp4" autoplay loop muted></video></div>
+                <div class="item"><video src="./assets/videos/hospital2.mp4" autoplay loop muted></video></div>
+                <div class="item"><video src="./assets/videos/hospital3.mp4" autoplay loop muted></video></div>
             </div>
         </div>
 
@@ -197,7 +204,9 @@
         <footer class="block" id="relogio"></footer>
 
     </div>
-    
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
 let num = 1000
 let sala = Math.floor(Math.random() * 20) + 1;
@@ -248,34 +257,16 @@ function relogio() {
 relogio();
 setInterval(relogio, 1000);
 
-// Videos
-const videos = [
-    "./assets/videos/hospital1.mp4",
-    "./assets/videos/hospital2.mp4",
-    "./assets/videos/hospital3.mp4"
-];
-
-let videoAtual = 0;
-
-const player = document.getElementById("videoPlayer");
-
-// Carrega o primeiro vídeo
-player.src = videos[videoAtual];
-player.play();
-
-// Função para trocar o vídeo
-function trocarVideo() {
-    videoAtual++;
-
-    if (videoAtual >= videos.length) {
-        videoAtual = 0;
-    }
-
-    player.src = videos[videoAtual];
-    player.play();
-}
-
-player.addEventListener("ended", trocarVideo);
+// Carrossel
+$('#videoCarousel').owlCarousel({
+    items: 1,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 5000, // Tempo de exibição de cada vídeo (em milissegundos)
+    autoplayHoverPause: false,
+    nav: false, // Esconde as setas de navegação
+    dots: false, // Esconde os pontos indicadores
+});
 </script>
 </body>
 
