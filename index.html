@@ -4,171 +4,279 @@
 
 <head>
 
-    <!-- Site: Painel de Atendimento -->
-    <!-- Criado por: Arthur Henrique Monteiro Pereira, David Henrique Fonseca Ramos, Olavo Pinto da Silva, Wylliam Rocha da Silva, Eduardo Oliveira da Silva -->
-    <!-- Data de criação: 06/04/2026 -->
-    <!-- Descrição: Painel de atendimento com gerador de senhas funcional -->
+    <!-- Site: Painel de Atendimento Médico -->
+    <!-- Criado por: Arthur Henrique Monteiro Pereira, David Henrique Fonseca Ramos, Wylliam Rocha da Silva, Eduardo Oliveira da Silva -->
+    <!-- Data: 06/04/2026 -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Atendimento</title>
+    <title>Atendimento Médico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <style>
+    body {
+        margin: 0px;
+        background-color: rgb(206, 206, 206);
+        font-family: "Inter";
+    }
 
-        body {
-            margin: 0px;
-            background-color: rgb(224, 224, 224);
-            font-family: "Inter";
-        }
+    /* cabeçalho */
+    h1 {
+        background-color: rgb(59, 59, 180);
+        color: white;
+        padding: 8px;
+        margin-top: 0px;
+        text-align: center;
+    }
 
-        /* cabeçalho */
-        h1 {
-            background-color: blue;
-            color: white;
-            padding: 20px;
-            margin-top: 0px;
-            text-align: center;
-        }
+    /* layout */
+    .container {
+        /* background-color: red; */
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-auto-rows: auto;
+        gap: 15px;
+        width: 90%;
+        margin-left: 4%;
+    }
 
-        /* layout */
+    .block {
+        /* background-color: green; */
+        position: sticky;
+        padding: 0px;
+    }
+
+    #painelAtual {
+        grid-column: 1 / 4;
+    }
+
+    /* formatação dos blocos */
+    .blockHeader {
+        background-color: rgb(44, 131, 202);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .blockContent {
+        margin: 0px 0px 0px 0px;
+        background-color: white;
+        padding: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow-wrap: break-word;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    footer {
+        padding: 100px;
+        grid-column: 2 / 3;
+        background-color: white;
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        padding: 10px;
+        margin: 0px;
+        color: white;
+    }
+
+    button {
+        color: white;
+        background-color: blue;
+        border: 0px;
+        border-radius: 8px;
+        padding: 8px;
+        font-size: 2ch;
+        font-weight: bold;
+    }
+
+    .blockContent > *, .blockHeader > * {
+        margin: 0px;
+    }
+
+    #chamadas > * {
+        list-style-type: none;
+    }
+
+    video {
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    /* cores dos blocos */
+    #green {
+        background-color: rgb(48, 181, 0);
+    }
+
+    #blue {
+        background-color: #0c6da1;
+    }
+
+    #grey {
+        background-color: rgb(155, 156, 156);
+    }
+
+    #yellow {
+        background-color: rgb(255, 74, 43);
+    }
+
+    /* ajuste do layout para telas menores */
+    @media (width <= 720px) {
+
         .container {
-            /* background-color: red; */
-            display: grid;
-            grid-template-columns: 33% 33% 33%;
-            grid-auto-rows: auto;
-            gap: 15px;
-            width: 90%;
-            margin-left: 4%;
-        }
-
-        .block {
-            /* background-color: green; */
-            position: sticky;
-            padding: 0px;
+        /* background-color: orange; */ 
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 20px;
+        width: 92%;
         }
 
         #painelAtual {
-            grid-column: 1 / 4;
+        grid-column: 1;
         }
 
-        /* formatação dos blocos de conteúdo */
-        .blockHeader {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
+        footer {
+          grid-column: 1;
         }
-
-        .blockContent {
-            margin: 0px 0px 0px 0px;
-            background-color: white;
-            padding: 10px;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-            overflow-wrap: break-word;
-            font-family: "Inter";
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-
-        h2 {
-            padding: 10px;
-            margin: 0px;
-            color: white;
-            font-family: "Inter";
-        }
-
-        .blockContent > *, .blockHeader > * {
-            margin: 0px;
-        }
-
-        /* cores individuais dos blocos */
-        .blue {
-            background-color: rgb(36, 163, 163);
-        }
-
-        .grey {
-            background-color: rgb(155, 156, 156);
-        }
-
-        .green {
-            background-color: rgb(48, 181, 0);
-        }
-
-        .darkBlue {
-            background-color: rgb(0, 88, 135);
-        }
-
-        /* ajuste do layout para telas menores */
-        @media (width <= 720px) {
-
-            .container {
-            /* background-color: orange; */
-            grid-template-columns: 100%;
-            gap: 20px;
-            width: 92%;
-            }
-
-            #painelAtual {
-            grid-column: 1;
-            }
-        }
-
+    }
     </style>
 
 </head>
 
 <body>
 
-    <h1>Painel de Atendimento</h1>
+    <h1 id="atendimento">ATENDIMENTO</h1>
 
     <div class="container">
 
-        <!-- Senhas - bloco base pro layout -->
+        <!-- Painel de senha atual -->
+        <div class="block" id="painelAtual">
+            <div class="blockHeader" id="green">
+                <h2>Senha Atual</h2>
+            </div>
+            <div class="blockContent">
+                <p id="senhaAtual" style="font-size: 3rem; text-align: center; font-weight: bold;"></p>
+            </div>
+        </div>
+
+        <!-- Gerador de senhas -->
         <div class="block">
-            
-            <!-- bloco formatado -->
-            <div class="blockHeader blue" > <!-- cabeçalho -->
-                <h2>Gerar Senha</h2>
+            <div class="blockHeader" id="blue" >
+                <h2>Gerador</h2>
             </div>
-            <div class="blockContent"> <!-- conteúdo -->
+            <div class="blockContent" id="senhas">
+                <button>Gerar Senha</button>
             </div>
-            
         </div>
 
         <!-- Mídia -->
         <div class="block">
-            <div class="blockHeader grey"> <!-- cabeçalho -->
-                <h2>Mídia</h2> 
+            <div class="blockHeader" id="grey">
+                <h2>Mídia</h2>
             </div>
-            <div class="blockContent"> <!-- conteúdo -->
-                <img src="/assets/images/cafefotogenerica.jpg" width="100%" style="border-radius: 10px;">
+            <div class="blockContent">
+                <video id="videoPlayer" muted autoplay playsinline></video>
             </div>
         </div>
 
-        <!-- Painel de Atendimento de Senhas -->
+        <!-- Painel das ltimas 4 chamadas -->
         <div class="block">
-            <div class="blockHeader green"> <!-- cabeçalho -->
-                <h2>Atendimento de Senhas</h2>
+            <div class="blockHeader" id="yellow">
+                <h2>Ultimas chamadas</h2>
             </div>
-            <div class="blockContent"> <!-- conteúdo -->
-                <p></p>
+            <div class="blockContent" id="chamadas">
             </div>
-
         </div>
 
-        <!-- Painel Atual -->
-        <div class="block" id="painelAtual"> 
-            <div class="blockHeader darkBlue"> <!-- cabeçalho -->
-                <h2>Atual</h2>
-            </div>
-            <div class="blockContent"> <!-- conteúdo -->
-                <p></p>
-            </div>
+        <footer class="block" id="relogio"></footer>
 
-        </div>
     </div>
     
-    <script></script>
+<script>
+let num = 1000
+let sala = Math.floor(Math.random() * 20) + 1;
+let historico = [];
+
+// Ação ao clicar o botão
+document.querySelector("#senhas").addEventListener("click", gerarSenha);
+
+// Função para gerar a senha ao apertar o botão
+function gerarSenha() {
+    senhas = document.querySelector("#senhaAtual").innerHTML = num + " - SALA " + sala;
+    sala = Math.floor(Math.random() * 20) + 1;
+    num++;
+
+    historico.unshift(senhas);    
+    if (historico.length > 4) {
+        historico.pop();
+    }
+
+    atualizarSenha();
+}
+
+// Função para atualizar a aba de "ultimas senhas"
+function atualizarSenha() {
+    let chamadas = document.querySelector("#chamadas");
+    chamadas.innerHTML = "";
+
+    for (let i of historico) {
+        let li = document.createElement("li");
+        li.innerText = i;
+        chamadas.appendChild(li);
+    }
+}
+
+// Relógio
+function relogio() {
+  const now = new Date();
+  
+  const timeString = now.toLocaleTimeString([], { 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit', 
+    hour12: false 
+  });
+
+  document.getElementById('relogio').textContent = timeString;
+}
+relogio();
+setInterval(relogio, 1000);
+
+// Videos
+const videos = [
+    "./assets/videos/hospital1.mp4",
+    "./assets/videos/hospital2.mp4",
+    "./assets/videos/hospital3.mp4"
+];
+
+let videoAtual = 0;
+
+const player = document.getElementById("videoPlayer");
+
+// Carrega o primeiro vídeo
+player.src = videos[videoAtual];
+player.play();
+
+// Função para trocar o vídeo
+function trocarVideo() {
+    videoAtual++;
+
+    if (videoAtual >= videos.length) {
+        videoAtual = 0;
+    }
+
+    player.src = videos[videoAtual];
+    player.play();
+}
+
+player.addEventListener("ended", trocarVideo);
+</script>
 </body>
 
 </html>
