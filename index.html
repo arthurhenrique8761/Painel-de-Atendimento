@@ -131,7 +131,7 @@
         background-color: rgb(255, 74, 43);
     }
 
-    /* ajuste do layout para telas menores */
+    /* ajuste de layout para telas menores */
     @media (width <= 720px) {
 
         .container {
@@ -192,7 +192,7 @@
             </div>
         </div>
 
-        <!-- Painel das ltimas 4 chamadas -->
+        <!-- Painel das ultimas 4 chamadas -->
         <div class="block">
             <div class="blockHeader" id="yellow">
                 <h2>Ultimas chamadas</h2>
@@ -241,7 +241,7 @@ function atualizarSenha() {
     }
 }
 
-// Relógio
+// Função para o relógio
 function relogio() {
   const now = new Date();
   
@@ -257,7 +257,7 @@ function relogio() {
 relogio();
 setInterval(relogio, 1000);
 
-// Carrossel
+// Função do JQuery para o carrossel
 $('#videoCarousel').owlCarousel({
     items: 1,
     loop: true,
