@@ -10,153 +10,17 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atendimento Médico</title>
+    <title>Painel de Atendimento</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <style>
-    body {
-        margin: 0px;
-        background-color: rgb(206, 206, 206);
-        font-family: "Inter";
-    }
-
-    /* cabeçalho */
-    h1 {
-        background-color: rgb(59, 59, 180);
-        color: white;
-        padding: 8px;
-        margin-top: 0px;
-        text-align: center;
-    }
-
-    /* layout */
-    .container {
-        /* background-color: red; */
-        display: grid;
-        grid-template-columns: 33% 33% 33%;
-        grid-auto-rows: auto;
-        gap: 15px;
-        width: 90%;
-        margin-left: 4%;
-    }
-
-    .block {
-        /* background-color: green; */
-        position: sticky;
-        padding: 0px;
-    }
-
-    #painelAtual {
-        grid-column: 1 / 4;
-    }
-
-    /* formatação dos blocos */
-    .blockHeader {
-        background-color: rgb(44, 131, 202);
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-
-    .blockContent {
-        margin: 0px 0px 0px 0px;
-        background-color: white;
-        padding: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        overflow-wrap: break-word;
-        text-align: center;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    footer {
-        padding: 100px;
-        grid-column: 2 / 3;
-        background-color: white;
-        text-align: center;
-        font-size: xx-large;
-        font-weight: bold;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    h2 {
-        padding: 10px;
-        margin: 0px;
-        color: white;
-    }
-
-    button {
-        color: white;
-        background-color: blue;
-        border: 0px;
-        border-radius: 8px;
-        padding: 8px;
-        font-size: 2ch;
-        font-weight: bold;
-    }
-
-    .blockContent > *, .blockHeader > * {
-        margin: 0px;
-    }
-
-    #chamadas > * {
-        list-style-type: none;
-    }
-
-    video {
-        border-radius: 8px;
-        width: 100%;
-    }
-
-    .owl-carousel {
-        width: auto;
-    }
-
-    /* cores dos blocos */
-    #green {
-        background-color: rgb(48, 181, 0);
-    }
-
-    #blue {
-        background-color: #0c6da1;
-    }
-
-    #grey {
-        background-color: rgb(155, 156, 156);
-    }
-
-    #yellow {
-        background-color: rgb(255, 74, 43);
-    }
-
-    /* ajuste de layout para telas menores */
-    @media (width <= 720px) {
-
-        .container {
-        /* background-color: orange; */ 
-        display: grid;
-        grid-template-columns: 100%;
-        gap: 20px;
-        width: 92%;
-        }
-
-        #painelAtual {
-        grid-column: 1;
-        }
-
-        footer {
-          grid-column: 1;
-        }
-    }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
 <body>
 
-    <h1 id="atendimento">ATENDIMENTO</h1>
+    <h1>ATENDIMENTO MÉDICO</h1>
 
     <div class="container">
 
@@ -176,7 +40,7 @@
                 <h2>Gerador</h2>
             </div>
             <div class="blockContent" id="senhas">
-                <button>Gerar Senha</button>
+                <button onclick="gerarSenha()">Gerar Senha</button>
             </div>
         </div>
 
@@ -185,89 +49,28 @@
             <div class="blockHeader" id="grey">
                 <h2>Mídia</h2>
             </div>
-            <div class="blockContent owl-carousel" id="videoCarousel">
-                <div class="item"><video src="./assets/videos/hospital1.mp4" autoplay loop muted></video></div>
-                <div class="item"><video src="./assets/videos/hospital2.mp4" autoplay loop muted></video></div>
-                <div class="item"><video src="./assets/videos/hospital3.mp4" autoplay loop muted></video></div>
+            <div class="blockContent">
+                <div class="carousel">
+                    <video class="video active" src="./assets/videos/hospital1.mp4" muted></video>
+                    <video class="video" src="./assets/videos/hospital2.mp4" muted></video>
+                    <video class="video" src="./assets/videos/hospital3.mp4" muted></video>
+                </div>
             </div>
         </div>
 
-        <!-- Painel das ultimas 4 chamadas -->
+        <!-- Painel de Ultimas chamadas -->
         <div class="block">
             <div class="blockHeader" id="yellow">
                 <h2>Ultimas chamadas</h2>
             </div>
-            <div class="blockContent" id="chamadas">
+            <div class="blockContent">
+                <ul id="historico" style="list-style: none; padding: 0; font-size: 1.2rem; font-weight: bold;"></ul>
             </div>
         </div>
 
-        <footer class="block" id="relogio"></footer>
-
     </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script>
-let num = 1000
-let sala = Math.floor(Math.random() * 20) + 1;
-let historico = [];
-
-// Ação ao clicar o botão
-document.querySelector("#senhas").addEventListener("click", gerarSenha);
-
-// Função para gerar a senha ao apertar o botão
-function gerarSenha() {
-    senhas = document.querySelector("#senhaAtual").innerHTML = num + " - SALA " + sala;
-    sala = Math.floor(Math.random() * 20) + 1;
-    num++;
-
-    historico.unshift(senhas);    
-    if (historico.length > 4) {
-        historico.pop();
-    }
-
-    atualizarSenha();
-}
-
-// Função para atualizar a aba de "ultimas senhas"
-function atualizarSenha() {
-    let chamadas = document.querySelector("#chamadas");
-    chamadas.innerHTML = "";
-
-    for (let i of historico) {
-        let li = document.createElement("li");
-        li.innerText = i;
-        chamadas.appendChild(li);
-    }
-}
-
-// Função para o relógio
-function relogio() {
-  const now = new Date();
-  
-  const timeString = now.toLocaleTimeString([], { 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit', 
-    hour12: false 
-  });
-
-  document.getElementById('relogio').textContent = timeString;
-}
-relogio();
-setInterval(relogio, 1000);
-
-// Função do JQuery para o carrossel
-$('#videoCarousel').owlCarousel({
-    items: 1,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 5000, // Tempo de exibição de cada vídeo (em milissegundos)
-    autoplayHoverPause: false,
-    nav: false, // Esconde as setas de navegação
-    dots: false, // Esconde os pontos indicadores
-});
-</script>
+    
+<script src="./script.js"></script>
 </body>
 
 </html>
